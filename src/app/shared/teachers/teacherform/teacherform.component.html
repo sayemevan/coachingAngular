@@ -1,0 +1,65 @@
+<mat-expansion-panel [expanded]="teacherRegService.panelOpenState">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <h2 style="padding-top: 15px;">Add New Teacher</h2>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="row">
+      <div class="col-md-3">
+        <mat-form-field appearance="outline">
+          <mat-label>Teacher ID</mat-label>
+          <input matInput placeholder="Teacher id" type="text" [(ngModel)]="teacherRegService.currentTeacher.teacherId"
+            disabled>
+        </mat-form-field>
+      </div>
+      <div class="col-md-5">
+        <mat-form-field appearance="outline">
+          <mat-label>Teacher Name</mat-label>
+          <input matInput placeholder="Write new teacher's name" type="text"
+            [(ngModel)]="teacherRegService.currentTeacher.teacherName">
+        </mat-form-field>
+      </div>
+      <div class="col-md-4">
+        <label id="example-radio-group-label"> Gender: &nbsp; </label>
+        <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+          [(ngModel)]="teacherRegService.currentTeacher.gender">
+          <mat-radio-button *ngFor="let gend of gender" [value]="gend.value">
+            {{gend.viewValue}} &nbsp;
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="col-md-4">
+        <mat-form-field appearance="outline">
+          <mat-label>Subject Name</mat-label>
+          <input matInput placeholder="Write teacher's subject name" type="text"
+            [(ngModel)]="teacherRegService.currentTeacher.subjectName">
+        </mat-form-field>
+      </div>
+      <div class="col-md-4">
+        <mat-form-field>
+          <mat-label>Joinig Date</mat-label>
+          <input matInput [matDatepicker]="picker" [(ngModel)]="teacherRegService.currentTeacher.joiningDate">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div class="col-md-4">
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Write teacher's email" type="text"
+            [(ngModel)]="teacherRegService.currentTeacher.email">
+        </mat-form-field>
+      </div>
+    </div>
+  
+  
+    <button class="btn btn-success" (click)="createOrUpdateTeachers(teacherRegService.currentTeacher)"> <i
+        class="fa fa-save"></i>
+      Save/Update</button>
+    <button class="btn btn-primary" (click)="clear();"> <i class="fa fa-retweet"></i> Clear</button>
+  
+  </mat-expansion-panel>
+ 

@@ -1,0 +1,69 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Teacher Payment List</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-form-field>
+            <mat-label>Search</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Write anything">
+        </mat-form-field>
+        <div>
+            <table mat-table [dataSource]="dataSource">
+
+                <ng-container matColumnDef="ID">
+                    <th mat-header-cell *matHeaderCellDef> ID </th>
+                    <td mat-cell *matCellDef="let teacherpayment"> {{teacherpayment.tpId}} </td>
+                </ng-container>
+
+
+                <ng-container matColumnDef="Teacher Name">
+                    <th mat-header-cell *matHeaderCellDef> Teacher Name </th>
+                    <td mat-cell *matCellDef="let teacherpayment"> {{teacherpayment.teachers.teacherName}} </td>
+                </ng-container>
+
+
+                <ng-container matColumnDef="Subject">
+                    <th mat-header-cell *matHeaderCellDef> Subject </th>
+                    <td mat-cell *matCellDef="let teacherpayment"> {{teacherpayment.teachers.subjectName}} </td>
+                </ng-container>
+
+
+                <ng-container matColumnDef="Amount">
+                    <th mat-header-cell *matHeaderCellDef> Amount </th>
+                    <td mat-cell *matCellDef="let teacherpayment"> {{teacherpayment.amount}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="Payment Date">
+                    <th mat-header-cell *matHeaderCellDef> Payment Date </th>
+                    <td mat-cell *matCellDef="let teacherpayment"> {{teacherpayment.paymentDate}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="Receipts">
+                    <th mat-header-cell *matHeaderCellDef> Receipts </th>
+                    <td mat-cell *matCellDef="let teacherpayment">
+                        <button mat-raised-button color="primary" (click)="teacherPaymentReceipt(teacherpayment)">
+                            <i class="fa fa-edit"></i> Get Receipt
+                        </button>
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="Actions">
+                    <th mat-header-cell *matHeaderCellDef>Actions</th>
+                    <td mat-cell *matCellDef="let teacherpayment">
+                        <button mat-raised-button color="primary" (click)="editTeacherpayment(teacherpayment)">
+                            <i class="fa fa-edit"></i> Edit
+                        </button>
+                        <button mat-raised-button color="warn" (click)="deleteTeacherpayment(teacherpayment.tpId)">
+                            <i class="fa fa-trash"></i> Delete
+                        </button>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let editTeacherpayment; columns: displayedColumns;">
+                </tr>
+            </table>
+            <mat-paginator [pageSizeOptions]="[5, 10, 20, 30, 50, 100]" showFirstLastButtons></mat-paginator>
+        </div>
+    </mat-card-content>
+</mat-card>

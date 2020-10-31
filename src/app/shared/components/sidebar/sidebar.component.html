@@ -1,0 +1,72 @@
+<mat-nav-list>
+    <div class="profile-card">
+      <div class="header">
+        <h2>Sayem Sikder</h2>
+      </div>
+      <img src="assets/img/sayem.jpg" alt="Sayem Sikder">
+      <h3><b>ICT Teacher</b></h3>
+    </div>
+    <mat-divider></mat-divider>
+  
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/">
+      <mat-icon>dashboard</mat-icon><b>Dashboard</b>
+    </a>
+  
+    <mat-divider></mat-divider>
+    <br>
+  
+    <h2 matSubHeader class="hformat">
+      <mat-icon>build</mat-icon>Tools
+    </h2>
+  
+  
+    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-icon>supervised_user_circle</mat-icon><b>Student Section</b>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-divider></mat-divider>
+      <a mat-list-item routerLinkActive="list-item-active" routerLink="/students">Register</a>
+      <mat-divider></mat-divider>
+      <a mat-list-item routerLinkActive="list-item-active" routerLink="/students/malestudents">Male Students</a>
+      <mat-divider></mat-divider>
+      <a mat-list-item routerLinkActive="list-item-active" routerLink="/students/femalestudents">Female Students</a>
+    </mat-expansion-panel>
+  
+  
+  
+    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-icon>supervisor_account</mat-icon><b>Teacher Section</b>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-divider></mat-divider>
+      <a mat-list-item routerLinkActive="list-item-active" routerLink="/teachers">Register</a>
+    </mat-expansion-panel>
+  
+  
+  
+    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-icon>receipt</mat-icon><b>Payment Section</b>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-divider></mat-divider>
+      <a mat-list-item routerLinkActive="list-item-active" routerLink="/studentpayment">Payment From Student</a>
+      <mat-divider></mat-divider>
+      <a mat-list-item routerLinkActive="list-item-active" routerLink="/teacherpayment">Payment To Teacher</a>
+    </mat-expansion-panel>
+  
+    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-icon>equalizer</mat-icon><b>Fund</b>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-divider></mat-divider>
+      <a mat-list-item routerLinkActive="list-item-active" routerLink="/fund">Fund</a>
+      </mat-expansion-panel>
+  </mat-nav-list>

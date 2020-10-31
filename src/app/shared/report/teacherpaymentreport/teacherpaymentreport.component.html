@@ -1,0 +1,19 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>
+            <div class="row">
+                <div class="col-md-6">
+                    <a routerLink="/teacherpayment"><button class="btn btn-primary" style="width: 150px;"> Back </button></a>
+                </div>
+                <div class="col-md-6">
+                    <a [href]="src"><button class="btn btn-primary" style="width: 200px;"> Download Receipt </button></a>
+                </div>
+            </div>
+
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <pdf-viewer [src]="src" [render-text]="true" style="display: block;"> </pdf-viewer>
+    </mat-card-content>
+</mat-card>
+

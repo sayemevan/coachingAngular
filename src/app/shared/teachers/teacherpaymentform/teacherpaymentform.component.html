@@ -1,0 +1,52 @@
+<mat-expansion-panel [expanded]="teacherPaymentService.panelOpenState">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <h2 style="padding-top: 15px;">Payment To Teacher</h2>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="row">
+      <div class="col-md-4">
+        <mat-form-field appearance="outline">
+          <mat-label>Payment ID</mat-label>
+          <input matInput placeholder="Payment id" type="text" [(ngModel)]="teacherPaymentService.currentTeacherpayment.tpId"
+            disabled>
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-8">
+        <mat-form-field>
+            <mat-label>Teacher Information</mat-label>
+            <mat-select [(ngModel)]="teacherPaymentService.currentTeacherpayment.teachers" >
+              <mat-option *ngFor="let allteacher of allTeachers" [value]="allteacher" >
+                ID: {{allteacher.teacherId}}, Name: {{allteacher.teacherName}}, Subject: {{allteacher.subjectName}} 
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+    </div>
+    </div>
+  
+    <div class="row">
+      <div class="col-md-6">
+        <mat-form-field appearance="outline">
+          <mat-label>Amount</mat-label>
+          <input matInput placeholder="Write payment amount" type="text"
+            [(ngModel)]="teacherPaymentService.currentTeacherpayment.amount">
+        </mat-form-field>
+      </div>
+      <div class="col-md-6">
+        <mat-form-field>
+          <mat-label>Payment Date</mat-label>
+          <input matInput [matDatepicker]="picker" [(ngModel)]="teacherPaymentService.currentTeacherpayment.paymentDate">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </div>
+  
+    <button class="btn btn-success" (click)="createOrUpdateTeacherpayment(teacherPaymentService.currentTeacherpayment)"> <i
+        class="fa fa-save"></i>
+      Save/Update</button>
+    <button class="btn btn-primary" (click)="clear();"> <i class="fa fa-retweet"></i> Clear</button>
+  
+  </mat-expansion-panel>
+

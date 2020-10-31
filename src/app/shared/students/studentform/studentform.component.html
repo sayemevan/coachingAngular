@@ -1,0 +1,75 @@
+<mat-expansion-panel [expanded]="studentRegService.panelOpenState">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <h2 style="padding-top: 15px;">Add New Student</h2>
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <div class="row">
+    <div class="col-md-4">
+      <mat-form-field appearance="outline">
+        <mat-label>Student ID</mat-label>
+        <input matInput placeholder="Student id" type="text" [(ngModel)]="studentRegService.currentStudent.student_id"
+          disabled>
+      </mat-form-field>
+    </div>
+    <div class="col-md-8">
+      <mat-form-field appearance="outline">
+        <mat-label>Student Name</mat-label>
+        <input matInput placeholder="Write new Student's name" type="text"
+          [(ngModel)]="studentRegService.currentStudent.student_name">
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <mat-form-field appearance="outline">
+        <mat-label>Class</mat-label>
+        <input matInput placeholder="Write Student's current class" type="text"
+          [(ngModel)]="studentRegService.currentStudent.running_class">
+      </mat-form-field>
+    </div>
+    <div class="col-md-4">
+      <mat-form-field>
+        <mat-label>Date of Birth</mat-label>
+        <input matInput [matDatepicker]="picker" [(ngModel)]="studentRegService.currentStudent.dob">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="col-md-4">
+      <label id="example-radio-group-label"> Gender: &nbsp; </label>
+      <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+        [(ngModel)]="studentRegService.currentStudent.gender">
+        <mat-radio-button *ngFor="let gend of gender" [value]="gend.value">
+          {{gend.viewValue}} &nbsp;
+        </mat-radio-button>
+      </mat-radio-group>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <mat-form-field appearance="outline">
+        <mat-label>Group</mat-label>
+        <input matInput placeholder="Write student's group" type="text"
+          [(ngModel)]="studentRegService.currentStudent.groupsub">
+      </mat-form-field>
+    </div>
+    <div class="col-md-6">
+      <mat-form-field appearance="outline">
+        <mat-label>Batch</mat-label>
+        <input matInput placeholder="Write Student's batch" type="text"
+          [(ngModel)]="studentRegService.currentStudent.batch">
+      </mat-form-field>
+    </div>
+  </div>
+
+
+  <button class="btn btn-success" (click)="createOrUpdateStudent(studentRegService.currentStudent)"> <i
+      class="fa fa-save"></i>
+    Save/Update</button>
+  <button class="btn btn-primary" (click)="clear();"> <i class="fa fa-retweet"></i> Clear</button>
+
+</mat-expansion-panel>
